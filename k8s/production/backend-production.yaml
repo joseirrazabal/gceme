@@ -6,14 +6,14 @@ spec:
   replicas: 1
   template:
     metadata:
-      name: api-backoffice
+      name: backend
       labels:
-        app: api-backoffice
+        app: gceme
         role: backend
         env: production
     spec:
       containers:
-      - name: api-backoffice
+      - name: backend
         image: gcr.io/cloud-solutions-images/gceme:1.0.0
         resources:
           limits:
@@ -24,7 +24,7 @@ spec:
           httpGet:
             path: /healthz
             port: 8080
-        # command: ["sh", "-c", "app -port=8080"]
+        command: ["sh", "-c", "app -port=8080"]
         ports:
         - name: backend
           containerPort: 8080
