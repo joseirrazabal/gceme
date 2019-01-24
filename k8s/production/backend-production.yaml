@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: api-backoffice
-        image: gcr.io/turing-audio-227423/api-backoffice:v25
+        image: gcr.io/cloud-solutions-images/gceme:1.0.0
         resources:
           limits:
             memory: "500Mi"
