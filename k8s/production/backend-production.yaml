@@ -1,17 +1,17 @@
 apiVersion: apps/v1beta1
 kind: Deployment
 metadata:
-  name: api-backoffice
+  name: JOB_NAME
 spec:
   replicas: 1
   template:
     metadata:
       labels:
-        app: api-backoffice
+        app: JOB_NAME
     spec:
       containers:
-      - name: api-backoffice
-        image: gcr.io/turing-audio-227423/api-backoffice:v25
+      - name: JOB_NAME
+        image: gcr.io/turing-audio-227423/JOB_NAME:vBUILD_NUMBER
         resources:
           limits:
             memory: "500Mi"
