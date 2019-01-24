@@ -70,7 +70,7 @@ spec:
     // }
     stage('Deploy development') {
       // Production branch
-      when { branch 'master' }
+      /* when { branch 'master' } */
       steps{
         container('kubectl') {
         // Change deployed image in canary to the one we just built
