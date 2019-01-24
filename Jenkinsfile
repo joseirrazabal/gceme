@@ -76,8 +76,9 @@ spec:
         // Change deployed image in canary to the one we just built
           /* sh("sed -i.bak 's#gcr.io/cloud-solutions-images/gceme:1.0.0#${imageTag}#' ./k8s/production/*.yaml") */
           /* sh("kubectl --namespace=development apply -f k8s/services/") */
-          sh("kubectl --namespace=production apply -f k8s/production/")
-          sh("echo http://`kubectl --namespace=production get service/${feSvcName} -o jsonpath='{.status.loadBalancer.ingress[0].ip}'` > ${feSvcName}")
+          /* sh("sed -i.bak 's#BUILD_NUMBER#BUILD_NUMBER#' k8s/production/backend-production.yaml") */
+          /* sh("sed -i.bak 's#JOB_NAME#JOB_NAME#' k8s/production/backend-production.yaml") */
+          sh("kubectl --namespace=production apply -f k8s/production/backend-production.yaml")
         }
       }
     }

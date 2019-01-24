@@ -1,16 +1,13 @@
+apiVersion: apps/v1beta1
 kind: Deployment
-apiVersion: extensions/v1beta1
 metadata:
   name: api-backoffice
 spec:
   replicas: 1
   template:
     metadata:
-      name: api-backoffice
       labels:
         app: api-backoffice
-        role: backend
-        env: production
     spec:
       containers:
       - name: api-backoffice
@@ -24,7 +21,5 @@ spec:
           httpGet:
             path: /healthz
             port: 8080
-        # command: ["sh", "-c", "app -port=8080"]
         ports:
-        - name: backend
-          containerPort: 8080
+          - containerPort: 9007
